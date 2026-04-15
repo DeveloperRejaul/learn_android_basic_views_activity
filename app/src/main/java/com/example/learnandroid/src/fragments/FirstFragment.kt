@@ -1,33 +1,36 @@
-package com.example.learnandroid
+package com.example.learnandroid.src.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.learnandroid.databinding.FragmentSecondBinding
+import com.example.learnandroid.R
+import com.example.learnandroid.src.utils.Navigator
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * A simple [androidx.fragment.app.Fragment] subclass as the default destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class FirstFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val button = view.findViewById<Button>(R.id.button_second)
+        val button = view.findViewById<Button>(R.id.button_first)
         button.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_MyFragment)
+            Navigator.push(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
+
+
 }
